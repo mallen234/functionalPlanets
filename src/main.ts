@@ -5,7 +5,6 @@ import { createScene } from "./three/scene";
 import { createCamera } from "./three/camera";
 import { createRenderer } from "./three/renderer";
 import { createControls } from "./three/controls";
-import { Size } from "three/examples/jsm/Addons.js";
 import { Sizes } from "./types/types";
 
 const sizes: Sizes = {
