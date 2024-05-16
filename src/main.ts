@@ -1,20 +1,33 @@
-import "../style.css";
+import "./style.css";
 // main.js
 import * as THREE from "three";
-import { createScene } from "/src/scene";
-import { createCamera } from "/src/camera";
-import { createRenderer } from "/src/three/renderer";
-import { createControls } from "/src/controls";
+import { createScene } from "./three/scene";
+import { createCamera } from "./three/camera";
+import { createRenderer } from "./three/renderer";
+import { createControls } from "./three/controls";
+import { Size } from "three/examples/jsm/Addons.js";
+import { Sizes } from "./types/types";
 
-const sizes = {
+const sizes: Sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
 
+console.log(window.innerWidth, window.innerHeight);
+
 const { scene, sun, earth, mars, light } = createScene();
 const camera = createCamera(sizes);
-const canvas = document.querySelector(".webgl");
-const renderer = createRenderer(canvas, sizes, scene, camera);
+
+const canvas: HTMLCanvasElement = document.querySelector(
+  ".webgl"
+) as HTMLCanvasElement;
+console.log(scene);
+const renderer: THREE.WebGLRenderer = createRenderer(
+  canvas,
+  sizes,
+  scene,
+  camera
+);
 const controls = createControls(camera, canvas);
 
 window.addEventListener("resize", () => {

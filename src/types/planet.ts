@@ -10,7 +10,7 @@ export interface Particle3D {
 }
 
 export interface Forces {
-  forces: number[][];
+  forces: vector3D[];
 }
 
 export const seperationBetweenVectors = (
@@ -68,13 +68,13 @@ export const calculateTotalForce = (
     }
   }
 
-  const totalForce: number[][] = [];
+  const totalForce: vector3D[] = [];
   for (let i = 0; i < N; i++) {
-    const totalForceOnParticle: number[] = [0, 0, 0];
+    const totalForceOnParticle: vector3D = { vector: [0, 0, 0] };
     for (let j = 0; j < N; j++) {
-      totalForceOnParticle[0] += A[i][j][0];
-      totalForceOnParticle[1] += A[i][j][1];
-      totalForceOnParticle[2] += A[i][j][2];
+      totalForceOnParticle.vector[0] += A[i][j].vector[0];
+      totalForceOnParticle.vector[1] += A[i][j].vector[1];
+      totalForceOnParticle.vector[2] += A[i][j].vector[2];
     }
     totalForce.push(totalForceOnParticle);
   }
