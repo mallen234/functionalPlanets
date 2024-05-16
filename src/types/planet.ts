@@ -90,20 +90,20 @@ export const updateParticlePosition = (
   const halfDtSqOverMass = (0.5 * dt ** 2) / particle.mass;
 
   const newPosition = [
-    particle.position[0] +
-      dt * particle.velocity[0] +
+    particle.position.vector[0] +
+      dt * particle.velocity.vector[0] +
       halfDtSqOverMass * force[0],
-    particle.position[1] +
-      dt * particle.velocity[1] +
+    particle.position.vector[1] +
+      dt * particle.velocity.vector[1] +
       halfDtSqOverMass * force[1],
-    particle.position[2] +
-      dt * particle.velocity[2] +
+    particle.position.vector[2] +
+      dt * particle.velocity.vector[2] +
       halfDtSqOverMass * force[2],
   ];
 
   return {
     ...particle,
-    position: newPosition,
+    position: { vector: newPosition } as vector3D,
   };
 };
 
@@ -113,13 +113,13 @@ export const updateParticleVelocity = (
   force: number[]
 ): Particle3D => {
   const newVelocity = [
-    particle.velocity[0] + (dt * force[0]) / particle.mass,
-    particle.velocity[1] + (dt * force[1]) / particle.mass,
-    particle.velocity[2] + (dt * force[2]) / particle.mass,
+    particle.velocity.vector[0] + (dt * force[0]) / particle.mass,
+    particle.velocity.vector[1] + (dt * force[1]) / particle.mass,
+    particle.velocity.vector[2] + (dt * force[2]) / particle.mass,
   ];
 
   return {
     ...particle,
-    velocity: newVelocity,
+    velocity: { vector: newVelocity } as vector3D,
   };
 };
