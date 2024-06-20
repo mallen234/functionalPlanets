@@ -14,7 +14,7 @@ const sizes: Sizes = {
 
 console.log(window.innerWidth, window.innerHeight);
 
-const { scene, sun, earth, mars, light } = createScene();
+const { scene, sun, light } = createScene();
 const camera = createCamera(sizes);
 
 const canvas: HTMLCanvasElement = document.querySelector(
@@ -37,9 +37,9 @@ window.addEventListener("resize", () => {
   renderer.setSize(sizes.width, sizes.height);
 });
 
-// const loop = () => {
-//   controls.update();
-//   renderer.render(scene, camera);
-//   window.requestAnimationFrame(loop);
-// }
-let time = 0;
+const loop = () => {
+  controls.update();
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(loop);
+};
+loop();
