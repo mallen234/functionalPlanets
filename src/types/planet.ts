@@ -108,12 +108,12 @@ export const updateParticlePosition = (
 export const updateParticleVelocity = (
   particle: Particle3D,
   dt: number,
-  force: number[]
+  force: vector3D
 ): Particle3D => {
   const newVelocity = [
-    particle.velocity.vector[0] + (dt * force[0]) / particle.mass,
-    particle.velocity.vector[1] + (dt * force[1]) / particle.mass,
-    particle.velocity.vector[2] + (dt * force[2]) / particle.mass,
+    particle.velocity.vector[0] + (dt * force.vector[0]) / particle.mass,
+    particle.velocity.vector[1] + (dt * force.vector[1]) / particle.mass,
+    particle.velocity.vector[2] + (dt * force.vector[2]) / particle.mass,
   ];
 
   return {

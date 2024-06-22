@@ -35,20 +35,20 @@ export const createScene = () => {
 
   const geometry = new THREE.SphereGeometry(1, 64, 64);
 
-  const Mmaterial = new THREE.MeshPhongMaterial({ color: 0x9ec2535 });
-  const Ematerial = new THREE.MeshPhongMaterial({ color: 0x00ffff });
+  const Mmaterial = new THREE.MeshBasicMaterial({ color: 0x9ec2535 });
+  const Ematerial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
   const Smaterial = new THREE.MeshBasicMaterial({
     color: "#F00",
   });
   const sun = new THREE.Mesh(geometry, Smaterial);
-  // const earth = new THREE.Mesh(geometry, Ematerial);
-  // const mars = new THREE.Mesh(geometry, Mmaterial);
+  const earth = new THREE.Mesh(geometry, Ematerial);
+  const jupiter = new THREE.Mesh(geometry, Mmaterial);
 
   const light = new THREE.SpotLight();
   const light_2 = new THREE.AmbientLight(0xffffff, 1);
   light.position.set(0, 10, 10);
   light_2.position.set(0, 10, 10);
-  scene.add(light, sun);
+  scene.add(light, sun, earth, jupiter);
 
   const pointLightHelper = new THREE.SpotLightHelper(light);
   // scene.add(pointLightHelper);
@@ -56,5 +56,5 @@ export const createScene = () => {
   // scene.add(light_2);
   scene.add(light);
 
-  return { scene, sun, light };
+  return { scene, sun, earth, jupiter, light };
 };

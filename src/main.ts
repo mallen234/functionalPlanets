@@ -18,7 +18,7 @@ const sizes: Sizes = {
 let planetList = initialPlanets;
 let forces = calculateTotalForce(planetList);
 
-const { scene, sun, light } = createScene();
+const { scene, sun, earth, jupiter, light } = createScene();
 const camera = createCamera(sizes);
 
 const canvas: HTMLCanvasElement = document.querySelector(
@@ -49,7 +49,9 @@ const loop = () => {
   forces = updatedValues.forces;
   console.log(planetList[0].position.vector[1]);
 
-  sun.position.set(...planetList[2].position.vector);
+  sun.position.set(...planetList[0].position.vector);
+  earth.position.set(...planetList[1].position.vector);
+  jupiter.position.set(...planetList[2].position.vector);
 
   renderer.render(scene, camera);
   window.requestAnimationFrame(loop);

@@ -2,6 +2,7 @@ import {
   Particle3D,
   calculateTotalForce,
   updateParticlePosition,
+  updateParticleVelocity,
 } from "./types/planet";
 import { Forces } from "./types/planet";
 
@@ -23,7 +24,7 @@ export const simulationStep = (
   // Update velocities
 
   for (let k = 0; k < planets.length; k++) {
-    planets[k] = updateParticlePosition(planets[k], dt, forces.forces[k]);
+    planets[k] = updateParticleVelocity(planets[k], dt, forces.forces[k]);
     // let A = F[k].map((value, index) => 0.5 * (value + forceNew[k][index]));
     // planets[k].leap_velocity(dt, A);
   }
