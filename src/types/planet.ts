@@ -23,10 +23,8 @@ export const seperationBetweenVectors = (
   return { vector: [x1, x2, x3] };
 };
 
-export const calculateTotalForce = (
-  planetlist: Particle3D[],
-  N: number
-): Forces => {
+export const calculateTotalForce = (planetlist: Particle3D[]): Forces => {
+  const N = planetlist.length;
   const g = 1.476147e-34; // Gravitational constant
   const A: vector3D[][] = new Array(N).fill(0).map(() =>
     new Array(N).fill(0).map(
@@ -85,20 +83,20 @@ export const calculateTotalForce = (
 export const updateParticlePosition = (
   particle: Particle3D,
   dt: number,
-  force: number[]
+  force: vector3D
 ): Particle3D => {
   const halfDtSqOverMass = (0.5 * dt ** 2) / particle.mass;
 
   const newPosition = [
     particle.position.vector[0] +
       dt * particle.velocity.vector[0] +
-      halfDtSqOverMass * force[0],
+      halfDtSqOverMass * force.vector[0],
     particle.position.vector[1] +
       dt * particle.velocity.vector[1] +
-      halfDtSqOverMass * force[1],
+      halfDtSqOverMass * force.vector[1],
     particle.position.vector[2] +
       dt * particle.velocity.vector[2] +
-      halfDtSqOverMass * force[2],
+      halfDtSqOverMass * force.vector[2],
   ];
 
   return {

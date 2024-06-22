@@ -33,13 +33,12 @@ export const createScene = () => {
 
   const scene = new THREE.Scene();
 
-  const geometry = new THREE.SphereGeometry(13, 64, 64);
+  const geometry = new THREE.SphereGeometry(1, 64, 64);
 
   const Mmaterial = new THREE.MeshPhongMaterial({ color: 0x9ec2535 });
   const Ematerial = new THREE.MeshPhongMaterial({ color: 0x00ffff });
   const Smaterial = new THREE.MeshBasicMaterial({
     color: "#F00",
-    wireframe: true,
   });
   const sun = new THREE.Mesh(geometry, Smaterial);
   // const earth = new THREE.Mesh(geometry, Ematerial);
@@ -52,7 +51,7 @@ export const createScene = () => {
   scene.add(light, sun);
 
   const pointLightHelper = new THREE.SpotLightHelper(light);
-  scene.add(pointLightHelper);
+  // scene.add(pointLightHelper);
 
   // scene.add(light_2);
   scene.add(light);

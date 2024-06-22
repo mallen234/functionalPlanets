@@ -6,13 +6,17 @@ import { createCamera } from "./three/camera";
 import { createRenderer } from "./three/renderer";
 import { createControls } from "./three/controls";
 import { Sizes } from "./types/types";
+import { initialPlanets } from "./initialData/threeBodyProblem";
+import { calculateTotalForce } from "./types/planet";
+import { simulationStep } from "./simulation";
 
 const sizes: Sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
 
-console.log(window.innerWidth, window.innerHeight);
+let planetList = initialPlanets;
+let forces = calculateTotalForce(planetList);
 
 const { scene, sun, light } = createScene();
 const camera = createCamera(sizes);
@@ -20,7 +24,6 @@ const camera = createCamera(sizes);
 const canvas: HTMLCanvasElement = document.querySelector(
   ".webgl"
 ) as HTMLCanvasElement;
-console.log(scene);
 const renderer: THREE.WebGLRenderer = createRenderer(
   canvas,
   sizes,
@@ -39,6 +42,15 @@ window.addEventListener("resize", () => {
 
 const loop = () => {
   controls.update();
+
+  let updatedValues = simulationStep(planetList, 5, forces);
+
+  planetList = updatedValues.planets;
+  forces = updatedValues.forces;
+  console.log(planetList[0].position.vector[1]);
+
+  sun.position.set(...planetList[2].position.vector);
+
   renderer.render(scene, camera);
   window.requestAnimationFrame(loop);
 };
