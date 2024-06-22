@@ -8,7 +8,7 @@ import { createControls } from "./three/controls";
 import { Sizes } from "./types/types";
 import { initialPlanets } from "./initialData/threeBodyProblem";
 import { calculateTotalForce } from "./types/planet";
-import { simulationStep } from "./simulation";
+import { simulationStep } from "./simulation/simulation";
 
 const sizes: Sizes = {
   width: window.innerWidth,

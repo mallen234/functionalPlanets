@@ -5,16 +5,18 @@ import "../style.css";
 export const createScene = () => {
   const scene = new THREE.Scene();
 
-  const geometry = new THREE.SphereGeometry(1, 64, 64);
+  const sunGeometry = new THREE.SphereGeometry(1, 64, 64);
+  const earthGeometry = new THREE.SphereGeometry(0.009, 64, 64);
+  const jupiterGeometry = new THREE.SphereGeometry(0.085, 64, 64);
 
   const Mmaterial = new THREE.MeshBasicMaterial({ color: 0x9ec2535 });
   const Ematerial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
   const Smaterial = new THREE.MeshBasicMaterial({
-    color: "#F00",
+    color: "#FFAE42",
   });
-  const sun = new THREE.Mesh(geometry, Smaterial);
-  const earth = new THREE.Mesh(geometry, Ematerial);
-  const jupiter = new THREE.Mesh(geometry, Mmaterial);
+  const sun = new THREE.Mesh(sunGeometry, Smaterial);
+  const earth = new THREE.Mesh(earthGeometry, Ematerial);
+  const jupiter = new THREE.Mesh(jupiterGeometry, Mmaterial);
 
   const light = new THREE.SpotLight();
   const light_2 = new THREE.AmbientLight(0xffffff, 1);
