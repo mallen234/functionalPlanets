@@ -18,7 +18,7 @@ const sizes: Sizes = {
 let planetList = initialPlanets;
 let forces = calculateTotalForce(planetList);
 
-const { scene, sun, earth, jupiter, light } = createScene();
+const { scene, sun, earth, jupiter } = createScene();
 const camera = createCamera(sizes);
 
 const canvas: HTMLCanvasElement = document.querySelector(
