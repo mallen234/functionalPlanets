@@ -6,8 +6,8 @@ export const createScene = () => {
   const scene = new THREE.Scene();
 
   const sunGeometry = new THREE.SphereGeometry(1, 64, 64);
-  const earthGeometry = new THREE.SphereGeometry(0.009, 64, 64);
-  const jupiterGeometry = new THREE.SphereGeometry(0.085, 64, 64);
+  const earthGeometry = new THREE.SphereGeometry(0.09, 64, 64);
+  const jupiterGeometry = new THREE.SphereGeometry(0.4, 64, 64);
 
   const Mmaterial = new THREE.MeshBasicMaterial({ color: 0x9ec2535 });
   const Ematerial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
