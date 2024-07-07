@@ -4,20 +4,20 @@ import { createCamera } from "../three/camera";
 import { createRenderer } from "../three/renderer";
 import { createControls } from "../three/controls";
 import { Sizes } from "../types/types";
-import { initialPlanets } from "../initialData/threeBodyProblem";
-import { calculateTotalForce } from "../types/planet";
+import { calculateTotalForce, Particle3D } from "../types/planet";
 import { simulationStep } from "../simulation/simulation";
 
-export const simCanvas = () => {
+export const simCanvas = (planetList: Particle3D[]) => {
   const sizes: Sizes = {
     width: window.innerWidth,
     height: window.innerHeight,
   };
 
-  let planetList = initialPlanets;
   let forces = calculateTotalForce(planetList);
 
-  const { scene, sun, earth, jupiter } = createScene();
+  console.log(planetList);
+
+  const { scene, scenePlanets } = createScene(planetList);
   const camera = createCamera(sizes);
 
   const canvas: HTMLCanvasElement = document.querySelector(
@@ -41,17 +41,17 @@ export const simCanvas = () => {
 
   const loop = () => {
     controls.update();
+    let updatedValues = simulationStep(planetList, 0.1, forces);
 
-    let updatedValues = simulationStep(planetList, 5, forces);
+    for (let i = 0; i <= 100; i++) {
+      updatedValues = simulationStep(planetList, 0.1, forces);
+    }
 
     planetList = updatedValues.planets;
     forces = updatedValues.forces;
-    console.log(planetList[0].position.vector[1]);
-
-    sun.position.set(...planetList[0].position.vector);
-    earth.position.set(...planetList[1].position.vector);
-    jupiter.position.set(...planetList[2].position.vector);
-
+    scenePlanets.map((planet, index) => {
+      planet.mesh.position.set(...planetList[index].position.vector);
+    });
     renderer.render(scene, camera);
     window.requestAnimationFrame(loop);
   };

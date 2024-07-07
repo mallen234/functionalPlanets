@@ -14,6 +14,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 1988500e24,
+    size: 0.5, // Largest size, the Sun
+    colour: "#FFD700", // Gold
   },
   {
     label: "Mercury",
@@ -28,6 +30,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 0.3302e24,
+    size: 0.15, // Smallest size for Mercury
+    colour: "#B0B0B0", // Gray
   },
   {
     label: "Venus",
@@ -42,6 +46,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 48.685e23,
+    size: 0.2, // Slightly larger than Mercury
+    colour: "#F5CBA7", // Light Tan
   },
   {
     label: "Earth",
@@ -56,6 +62,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 5.97219e24,
+    size: 0.1, // Baseline reference size for Earth
+    colour: "#2E8B57", // Sea Green for land
   },
   {
     label: "Moon",
@@ -70,6 +78,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 7.349e22,
+    size: 0.05, // Smaller size for the Moon
+    colour: "#C0C0C0", // Silver
   },
   {
     label: "Mars",
@@ -82,6 +92,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 6.4171e23,
+    size: 0.2, // Smaller than Earth
+    colour: "#D14A28", // Rusty Red
   },
   {
     label: "Jupiter",
@@ -94,6 +106,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 1898.13e24,
+    size: 0.5, // Larger relative size for Jupiter
+    colour: "#D2B48C", // Tan
   },
   {
     label: "Saturn",
@@ -106,6 +120,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 5.6834e26,
+    size: 0.5, // Slightly smaller than Jupiter
+    colour: "#D8BFD8", // Thistle (light purple-gray)
   },
   {
     label: "Uranus",
@@ -118,6 +134,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 86.813e24,
+    size: 1, // Smaller than Saturn
+    colour: "#AFEEEE", // Pale Turquoise
   },
   {
     label: "Neptune",
@@ -130,6 +148,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 102.413e24,
+    size: 1, // Slightly smaller than Uranus
+    colour: "#4169E1", // Royal Blue
   },
   {
     label: "Pluto",
@@ -144,6 +164,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 1.307e22,
+    size: 0.5, // Very small relative size
+    colour: "#B0E0E6", // Powder Blue
   },
   {
     label: "Halley's_Comet",
@@ -154,5 +176,7 @@ export const initialPlanets: Particle3D[] = [
       vector: [1.71337586120913e-4, 6.406200068874306e-4, -5.92245539777201e-5],
     } as vector3D,
     mass: 2.2e14,
+    size: 0.5, // Smallest size for Halley's Comet
+    colour: "#00FFFF", // Aqua/Cyan
   },
 ];
