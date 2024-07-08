@@ -58,8 +58,94 @@ nav ul {
   position: absolute;
   font-size: 3rem;
   left: 50%;
-  top: 75%;
+  top: 85%;
   transform: translate(-50%, -75%);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: black;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  /* background-color: black; */
+  color: black;
+}
+
+#controlCenterButton {
+  padding: 0;
+  color: white;
+  border: 2rem;
+  padding: 0rem;
+  border: white;
+  z-index: 2;
+  position: relative;
+}
+#controlCenterButton:hover {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#controlTitle {
+  color: black;
+  z-index: 2;
+  position: relative;
+  font-size: 1rem;
+}
+
+#controlCenter {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 1.5rem;
+  z-index: 0;
+  position: absolute;
+  width: 25%;
+  border-radius: 10%;
+  top: 20%;
+  left: 50%;
+
+  transform: translateX(-50%);
+  align-content: center;
+  display: none;
+}
+
+.bodies {
+  color: black;
+}
+
+.add-body-button {
+  padding: 0;
+  background-color: transparent;
+}
+
+.add-body-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+li::marker {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .title {
+    width: 100%;
+    font-size: 2rem;
+    top: 15%;
+    text-align: center;
+  }
+  #controlCenter {
+    width: 66%;
+    top: 35%;
+  }
+  nav {
+    padding: 2rem 2rem;
+  }
 }
 
 /* a {

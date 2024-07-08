@@ -9,8 +9,6 @@ export const createRenderer = (
   scene: THREE.Scene,
   camera: THREE.Camera
 ): THREE.WebGLRenderer => {
-  console.log(sizes);
-
   const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({ canvas });
   renderer.setSize(sizes.width, sizes.height);
   renderer.render(scene, camera);

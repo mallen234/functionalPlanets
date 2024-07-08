@@ -7,6 +7,8 @@ export interface Particle3D {
   position: vector3D;
   velocity: vector3D;
   mass: number;
+  size: number;
+  colour: string;
 }
 
 export interface Forces {
