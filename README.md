@@ -5,3 +5,11 @@ I had some N-body newtonian simulation code which I have been meaning to put int
 
 I need to add a little UI so you can add and remove bodies and restart the simulation
 
+# It is a simple vite app so to run locally
+- git clone git@github.com:mallen234/functionalPlanets.git
+- cd functionalPlanets
+- npm install
+- npm run dev
+
+# To Build
+- npm run build
