@@ -43,7 +43,7 @@ export const simCanvas = (planetList: Particle3D[]) => {
     controls.update();
     let updatedValues = simulationStep(planetList, 0.1, forces);
 
-    for (let i = 0; i <= 100; i++) {
+    for (let i = 0; i <= 50; i++) {
       updatedValues = simulationStep(planetList, 0.1, forces);
     }
 

@@ -110,6 +110,7 @@ button:hover {
 
   transform: translateX(-50%);
   align-content: center;
+  display: none;
 }
 
 .bodies {
