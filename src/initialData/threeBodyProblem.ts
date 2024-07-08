@@ -14,6 +14,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 1988500e24,
+    size: 0.5, // Largest size, the Sun
+    colour: "#FFD700", // Gold
   },
 
   {
@@ -29,6 +31,8 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 5.97219e24,
+    size: 0.1, // Baseline reference size for Earth
+    colour: "#2E8B57", // Sea Green for land
   },
   {
     label: "Jupiter",
@@ -41,5 +45,7 @@ export const initialPlanets: Particle3D[] = [
       ],
     } as vector3D,
     mass: 1898.13e24,
+    size: 0.5, // Larger relative size for Jupiter
+    colour: "#D2B48C", // Tan
   },
 ];
